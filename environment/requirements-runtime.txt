@@ -1,0 +1,2 @@
+-r requirements-inference.txt
+protobuf==6.33.5

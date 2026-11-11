@@ -1,0 +1,9 @@
+Multimodal Motion Reasoning with Temporal and Structured Fusion
+Copyright 2026 Danielle Lesin
+
+This release includes third-party source. See THIRD_PARTY.md and the
+license files accompanying the relevant components.
+
+The atomic-action component includes DropBlock and stochastic-depth
+utilities by Ross Wightman, Copyright 2020, from pytorch-image-models.
+The copyright notice and references appear in the source.

@@ -1,0 +1,108 @@
+{
+  "canonical_folds": [
+    {
+      "fold": 0,
+      "users": [
+        1,
+        2,
+        3
+      ],
+      "role": "development_only",
+      "expected_rows": 477,
+      "held_indices_int64_le_sha256": "bd7f8407e677b616aaa1efd86edce5166ffa3fae6957d9a8049e74221769bbb3",
+      "training_indices_int64_le_sha256": "96a3860702a21a35a2c156e06d5f42a4328f7c5662164e597ea1b92de20e0f35",
+      "held_group_sequence_utf8_lf_sha256": "22aa04fab7642e084ee6779d5242c6cf84785bdc0469955f6bf553ff0c22f801"
+    },
+    {
+      "fold": 1,
+      "users": [
+        4,
+        5,
+        6
+      ],
+      "role": "untouched_confirmation",
+      "expected_rows": 435,
+      "held_indices_int64_le_sha256": "4f9e80580f1ed1ea299f5d118c7e4962d6db1b130dd444067003c776bdcd0191",
+      "training_indices_int64_le_sha256": "6e2f7a7f2e93f7a4ef0ffe5a38e8b4704a719e8fbca12ad56700bf83880c386f",
+      "held_group_sequence_utf8_lf_sha256": "7c0067a9a17b17f9a81519a19357f8258595efaab5f171f9245ed8d5c53df5e8"
+    },
+    {
+      "fold": 2,
+      "users": [
+        7,
+        8,
+        9
+      ],
+      "role": "untouched_confirmation",
+      "expected_rows": 530,
+      "held_indices_int64_le_sha256": "ebbcbbc3d5cedd8872e0ec21bd58f4cbb45f49ecfcef34e20bdbee91892337d6",
+      "training_indices_int64_le_sha256": "beff73edbe24fb9f87a0866047eefa81dc37cb82a1337fd6f7435482bb3f60d0",
+      "held_group_sequence_utf8_lf_sha256": "13fc7ee09edd55a7fb61459aef12d21c1040974acf8b1b5d90bc1da81c98f137"
+    },
+    {
+      "fold": 3,
+      "users": [
+        16,
+        17,
+        18
+      ],
+      "role": "untouched_confirmation",
+      "expected_rows": 530,
+      "held_indices_int64_le_sha256": "4b7e3ddf53ab6918240545f58a7d0e977d752cb042f4eb89de4a8fa66cddd9e5",
+      "training_indices_int64_le_sha256": "8d4d85d5bda3f1da6fe7ff5adb46c960e35db4003be2891225a42ddc131ec88b",
+      "held_group_sequence_utf8_lf_sha256": "14a9fa54db5b2f88b30d7614697d78ed6222145fb054aa130a961cf1dff2a724"
+    },
+    {
+      "fold": 4,
+      "users": [
+        19,
+        20,
+        21
+      ],
+      "role": "untouched_confirmation",
+      "expected_rows": 478,
+      "held_indices_int64_le_sha256": "1ceb875f72be82bf595c65ba26016b9c0db90a2f57160595d1a20acd3372272f",
+      "training_indices_int64_le_sha256": "50149c53e28d361a6a1f9cd68e4e9df849f3afcaa7252a54b9e2b54780773818",
+      "held_group_sequence_utf8_lf_sha256": "de571c6992cb4cfabcddbe06554a0cfd3d84036b6c79530ea382a635f34b68ae"
+    },
+    {
+      "fold": 5,
+      "users": [
+        22,
+        23,
+        24
+      ],
+      "role": "untouched_confirmation",
+      "expected_rows": 481,
+      "held_indices_int64_le_sha256": "771886b6e88fc230c4198b11b4e8fe8e32cbf7fbf5f2f066b350040ee9aa2bac",
+      "training_indices_int64_le_sha256": "731caa71ea972b6dc803e984eea9b222d3d139c3bd4b584df4917dfd1e4390f2",
+      "held_group_sequence_utf8_lf_sha256": "f6e6a905a21df26a3d4d614195a6b972923c2048af3c33502b1f2095a46793ad"
+    }
+  ],
+  "fixed_pair_recipe": {
+    "seed": 20260822,
+    "seed_policy": "same seed, target initialization, per-epoch shuffle, and per-example augmentation functions for control and treatment; fold identity changes only train/held membership",
+    "frames": 64,
+    "epochs": 20,
+    "batch_size": 32,
+    "optimizer": "SGD",
+    "base_learning_rate": 0.03,
+    "warmup_epochs": 2,
+    "momentum": 0.9,
+    "nesterov": true,
+    "weight_decay": 0.0001,
+    "schedule": "two-epoch linear warmup followed by cosine decay to zero over exactly 20 total epochs",
+    "augmentation_normalization_and_h36m17_adaptation": "byte-identical functions from the verified fold0 runner",
+    "held_evaluation": "exactly once after epoch 20; no epoch, checkpoint, hyperparameter, threshold, or model variant selection from confirmatory outcomes",
+    "control": "seeded common target random initialization",
+    "treatment": "the same target initialization with only the locked exact-match official tensors replaced",
+    "checkpoint_dtype": "float16"
+  },
+  "public_checkpoint": {
+    "filename": "2009_EfficientGCN-B4_ntu-xsub.pth.tar",
+    "bytes": 9608526,
+    "sha256": "263a37af21ef80abcce4a5ac189a950473d54b379f0a820bae1c6a498aa337e6",
+    "protocol": "NTU RGB+D 60 cross-subject",
+    "variant": "EfficientGCN-B4 SG"
+  }
+}
